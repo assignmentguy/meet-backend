@@ -1,4 +1,3 @@
-//require('dotenv').config()
 const expect = require('chai').expect;
 
 const MeetScraper = require('../services/scrapers/meet-scraper');
