@@ -16,15 +16,15 @@ describe('Meet scraper', () => {
         });
 
         it('should get array', () => {
-            const ninjas = meetScraper.ninjas;
+            const ninjas = meetScraper.ninjaSummaryDivs;
             expect(Array.isArray(ninjas)).to.be.true;
         });
         it('array should not be empty', () => {
-            const ninjas = meetScraper.ninjas;
+            const ninjas = meetScraper.ninjaSummaryDivs;
             expect(!Array.isArray(ninjas)).to.be.false;
         });
         it('array should contain parsable ninja-summary-div:s', () => {
-            const ninjaScraper = new NinjaScraper(meetScraper.ninjas[3])
+            const ninjaScraper = new NinjaScraper(meetScraper.ninjaSummaryDivs[3])
             expect(ninjaScraper.name).to.not.be.equal('')
         });
     });
