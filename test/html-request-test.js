@@ -1,5 +1,5 @@
 require('dotenv').config();
-const assert = require('assert');
+const expect = require('chai').expect;
 
 const { getHtml } = require('../services/requests/html-request')
 
@@ -9,13 +9,13 @@ describe('Meet HTTP request', () => {
         it('should not throw error', () => {
             return getHtml(process.env.MEET_ENDPOINT).then(response => {
                 meetHtml = response;
-                assert.doesNotThrow;
+                expect().to.not.throw;
             });
         });
     });
     describe('Validate meet HTML', () => {
         it('should contain ninja-summary div', () => {
-            assert.strictEqual(meetHtml.includes('<div class="ninja-summary"'), true);
+            expect(meetHtml).to.include('<div class="ninja-summary"');
         });
     });
 });
