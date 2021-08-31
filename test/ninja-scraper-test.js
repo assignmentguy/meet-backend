@@ -1,6 +1,7 @@
 const expect = require('chai').expect;
 
 const NinjaScraper = require('../services/scrapers/ninja-scraper');
+const Ninja = require('../models/ninja-model');
 
 // The ninja-summary div contains the information we need for each employee which the scraper will be based on.
 const ninjaSummaryDiv = '<div class="ninja-summary" data-aos="flip-up" data-aos-offset="-20"> <div class="contact-info"> <h1><a href="meet/agron-kabashi">Agron Kabashi<span>🇸🇪 Lund</span></a></h1> <nav class="ninja-nav"> <a href="/meet/agron-kabashi" class="btn-secondary btn-small"><span>Get to know me</span></a> </nav> </div> <a href="/meet/agron-kabashi" data-bind="click: isActiveFilter(filters.grid) ? selectNinja : null"> <img class="portrait" src="https://i.1337co.de/profile/agron-kabashi-medium" alt="Agron Kabashi"> </a> </div>';
@@ -40,6 +41,11 @@ describe('Ninja scraper', () => {
         });
         it('invalid data should return empty flag', () => {
             expect(ninjaScraperWithInvalidData.flag).to.equal('');
+        });
+    });
+    describe('Get Ninja-model from class instance', () => {
+        it('should return a instance of the Ninja class', () => {
+            expect(ninjaScraper.ninja).to.deep.equal(new Ninja('Agron Kabashi', 'Lund', '🇸🇪', 'https://i.1337co.de/profile/agron-kabashi-medium', 'agron-kabashi' ));
         });
     });
 });

@@ -1,8 +1,17 @@
 const cheerio = require('cheerio');
+const Ninja = require('../../models/ninja-model')
 
 module.exports = class NinjaScraper {
     constructor(ninjaSummaryDiv) {
         this.ninjaSummaryDivHtml = cheerio.load(ninjaSummaryDiv);
+    };
+
+    get ninja() {
+        return new Ninja(this.name,
+            this.office,
+            this.flag,
+            this.imageUrl,
+            this.detailsPath);
     };
 
     get name() {
