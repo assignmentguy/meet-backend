@@ -1,14 +1,18 @@
 {
     "name": "Meet-backend",
     "description": "Meet API assignment",
-    "scripts":{
-        "dev": "nodemon app.js"
+    "scripts": {
+        "dev": "nodemon app.js",
+        "test": "mocha"
     },
     "dependencies": {
+        "bent": "^7.3.12",
         "dotenv": "^10.0.0",
         "express": "^4.17.1"
     },
     "devDependencies": {
+        "chai": "^4.3.4",
+        "mocha": "^9.1.1",
         "nodemon": "^2.0.12"
     }
 }
